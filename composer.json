@@ -44,7 +44,7 @@
                 "TravisNguyen\\MessageHub\\MessageHubServiceProvider"
             ],
             "aliases": {
-                "UserVerification": "TravisNguyen\\MessageHub\\Facades\\MessageHub"
+                "MessageHub": "TravisNguyen\\MessageHub\\Facades\\MessageHub"
             }
         }
     }
