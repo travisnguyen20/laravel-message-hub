@@ -6,10 +6,10 @@
  */
 namespace TravisNguyen\MessageHub;
 
-use TravisNguyen\MessageHub\Exceptions\InvalidAcessTokenException;
+use TravisNguyen\MessageHub\Exceptions\InvalidAccessTokenException;
 use TravisNguyen\MessageHub\Exceptions\InvalidMessageException;
-use GuzzleHttp\Client;
 use TravisNguyen\MessageHub\Exceptions\TokenExpiredException;
+use GuzzleHttp\Client;
 
 class MessageHub
 {
@@ -28,7 +28,7 @@ class MessageHub
     {
         $this->httpClient = new Client([
             // Base URI is used with relative requests
-            'base_uri' => 'https://message-hub.com/api/',
+            'base_uri' => 'https://message-hub.com/',
             // You can set any number of default request options.
             'timeout'  => 2.0,
         ]);
@@ -39,23 +39,23 @@ class MessageHub
      *
      * @param Message $message
      * @return bool
-     * @throws InvalidAcessTokenException
+     * @throws InvalidAccessTokenException
      * @throws InvalidMessageException
      * @throws TokenExpiredException
      */
     public function push(Message $message)
     {
         if (!$this->validateMessage($message)) {
-            throw new InvalidMessageException($message);
+            throw new InvalidMessageException();
         }
 
         $token = config('message-hub.api-token');
 
         if (!$token || $token == '') {
-            throw new InvalidAcessTokenException($message);
+            throw new InvalidAccessTokenException();
         }
 
-        $response = $this->httpClient->request('POST', '/message', [
+        $response = $this->httpClient->request('POST', 'api/message', [
             'headers' => [
                 'Accept'     => 'application/json',
                 'Authorization' => 'Bearer ' . $token
@@ -96,6 +96,6 @@ class MessageHub
      * @return bool
      */
     private function isNullOrEmpty($value) {
-        return $value != null && $value != '';
+        return $value == null || $value == '';
     }
 }

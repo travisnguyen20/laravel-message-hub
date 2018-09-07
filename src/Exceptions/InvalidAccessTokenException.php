@@ -8,7 +8,7 @@ namespace TravisNguyen\MessageHub\Exceptions;
 
 use Exception;
 
-class InvalidAcessTokenException extends Exception
+class InvalidAccessTokenException extends Exception
 {
     /**
      * The exception description.

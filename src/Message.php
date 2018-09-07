@@ -14,7 +14,7 @@ class Message
      *
      * @var string
      */
-    protected $id;
+    public $id;
 
     /**
      * Title
@@ -74,13 +74,6 @@ class Message
     public function content($content) {
         $this->content = $content;
         return $this;
-    }
-
-    /*
-     * Get ID of message, this id only available after push
-     */
-    public function getId() {
-        return $this->id;
     }
 
     public static function createMessage($title, $source) {
