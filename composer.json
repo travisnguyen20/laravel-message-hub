@@ -1,6 +1,6 @@
 {
     "name": "travisnguyen20/laravel-message-hub",
-    "description": "User Email Verification For Laravel 5.*",
+    "description": "Message Hub For Laravel 5.*",
     "keywords": ["laravel", "framework", "message hub"],
     "license": "MIT",
     "authors": [

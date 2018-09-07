@@ -40,7 +40,7 @@ class MessageHubServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the user verification.
+     * Register the message hub.
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void
